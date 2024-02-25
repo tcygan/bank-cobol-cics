@@ -279,8 +279,14 @@
             MOVE SURNAMEI TO    SURNAME-FIELD                  
             MOVE ADRESSI  TO    ADRESS-FIELD                   
             MOVE PHONEI   TO    PHONE-NUM-FIELD                  
-            MOVE IDNUMI   TO    ID-NUMBER-FIELD                  
-      
+            MOVE IDNUMI   TO    ID-NUMBER-FIELD         
+                     
+      * CODE BELOW WILL DELETE UNDERSORES FROM USER DATA 
+            INSPECT NAME-FIELD REPLACING ALL '_' BY ' '       
+            INSPECT SURNAME-FIELD REPLACING ALL '_' BY ' '    
+            INSPECT ADRESS-FIELD REPLACING ALL '_' BY ' '     
+
+
       * EXEC BELOW WILL GET THE CURRENT TIME
       * THAT WILL BE STORED IN THE FILE
 
