@@ -318,15 +318,15 @@
            EXIT.                                             
       
        EXIT-PARA.                                             
+      * paragraph will send control to mapmenup                   
            EXEC CICS                                         
-           SEND TEXT FROM(EXIT-MSG)                          
-           ERASE                                             
-           END-EXEC                                          
-           EXEC CICS                                         
-           RETURN                                            
+         
+           XCTL PROGRAM('MAPMENUP')                                            
+         
            END-EXEC                                          
            GOBACK.                                              
-       ABNORMAL-EXIT-PARA.                                       
+       ABNORMAL-EXIT-PARA.     
+      * termination in case of error                                   
            EXEC CICS                                            
            SEND TEXT FROM(ABNORMAL-EXIT-MSG)                    
            ERASE                                                
@@ -334,13 +334,15 @@
            EXEC CICS                                            
            RETURN                                               
            END-EXEC                                             
-           GOBACK.                                              
+           GOBACK.                  
+
        SEND-CORRECT-RESPONSE.                                    
            MOVE CORRECT-RESPONSE-MSG TO MSGO                    
            PERFORM SEND-THE-DATA                                
            EXIT.                                                
+       
        SEND-NOTFND-ERROR.                                        
            MOVE NOTFND-ERROR-MSG TO MSGO                        
            PERFORM SEND-THE-DATA                                
-	        EXIT.
+	       EXIT.
                     

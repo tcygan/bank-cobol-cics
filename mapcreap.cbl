@@ -96,16 +96,12 @@
            EXIT.                                                     
       
        EXIT-PROGRAM-PARA.                                 
-      * paragraph will terminate the transaction
-      * in normal situation
+      * paragraph will take program logic to MAPMENUP
 
-           EXEC CICS                                                 
-           SEND TEXT FROM(NORMAL-EXIT-MSG)                           
-           ERASE                                                     
-           END-EXEC                                                  
 
+      
            EXEC CICS                                                 
-           RETURN                                                    
+           XCTL PROGRAM('MAPMENUP')                      
            END-EXEC                                                  
            GOBACK.                                                   
        ERROR-EXIT-PROGRAM-PARA.                                      

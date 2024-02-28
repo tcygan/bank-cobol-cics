@@ -123,16 +123,10 @@
            EXIT.                                                     
       
        EXIT-PARA.                                                    
-      * paragraph is called when user wants to terminate transaction
-      * proper message will be sended
+      * paragraph will xctl control to mapmenup program
 
            EXEC CICS                                                 
-           SEND TEXT FROM(EXIT-MSG)                                  
-           ERASE                                                     
-           END-EXEC                                                  
-      
-           EXEC CICS                                                 
-           RETURN                                                    
+             XCTL PROGRAM('MAPMENUP')                              
            END-EXEC                                                  
            GOBACK.                                                   
        ABNORMAL-EXIT-PARA.                                           
